@@ -25,56 +25,27 @@ This version installs everything from the source packages includeing all the dep
 	sudo apt-get install postgresql-9.3 postgresql-contrib-9.3 postgresql-9.3-postgis-2.1 postgresql-9.3-postgis-scripts -y
 
 
+	sudo su postgres
 	
-
-<br />
-Now configuration time
-
-### Configure PostgreSQL database server
-	##### Add 'postgres' user
-		sudo adduser postgres
-		Enter new UNIX password: 
-		Retype new UNIX password:
+	psql
 	
-	##### Make and set permissions on the pgsql directory
-		sudo mkdir /usr/local/pgsql/data
-		sudo chown postgres /usr/local/pgsql/data
+	alter user postgres with password <your password here>
 	
-	##### Initialize the postgres DB
-		su - postgres
-		/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+	\q
+	exit
 	
-	##### Start the service and logging
-		/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &
+	sudo pico /etc/postgresql/9.3/main/postgresql.conf
 	
-	##### Create a test DB
-		/usr/local/pgsql/bin/createdb test
-		/usr/local/pgsql/bin/psql test
-		\q
-		
-	### Modify Files
-		su - postgres
-		cd /usr/local/pgsql/data
-		pico postgresql.conf
-		
-		# remove the hash and change localhost to *, then save and exit pico
-		listen_addresses = '*'
-
-		pico pg_hba.conf
-		# Add this line, then save and exit pico
-		host  all all 0.0.0.0/0 md5
+	--from this 
+	#listen_addresses = ‘localhost’  
+	--to 
+	listen_addresses = ‘*’  
 	
-	### Config libraries
-		sudo ldconfig 
+	sudo pico /etc/postgresql/9.3/main/pg_hba.conf
+	--add this line:
+	host    all             all             0.0.0.0/0               md5
 	
-	### Restart postgres service
-		su - postgres
-		/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &
-	
-	
-	##restart the server. 
-	##log in and restart the postgres service.
-    ##This will get the basic stuff up. 	
+	sudo /etc/init.d/postgresql restart
 
 <br />
 You should be good to go….
