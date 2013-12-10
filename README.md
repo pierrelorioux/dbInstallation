@@ -1,7 +1,7 @@
 Datbase Server
 ============
 
-Install a new database. Using [PostgreSQL](http://www.postgresql.org/) 9.2.2 and [PostGIS] (http://postgis.net/) 2.1.0
+Install a new database. Using [PostgreSQL](http://www.postgresql.org/) 9.3.0 and [PostGIS] (http://postgis.net/) 2.1.0
 
 Instructions (installation)
 ---------------------------
