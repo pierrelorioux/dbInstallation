@@ -1,4 +1,4 @@
-Datbase Server
+Database Server
 ============
 
 Install a new database. Using [PostgreSQL](http://www.postgresql.org/) 9.3.0 and [PostGIS] (http://postgis.net/) 2.1.0
