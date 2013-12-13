@@ -29,11 +29,12 @@ This version installs everything from the source packages includeing all the dep
 	
 	psql
 	
-	alter user postgres with password <your password here>
+	alter user postgres with password '<your password here>';
 	
 	\q
 	exit
 	
+	--or VI or VIM or whatever editor
 	sudo pico /etc/postgresql/9.3/main/postgresql.conf
 	
 	--from this 
