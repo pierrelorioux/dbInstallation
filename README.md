@@ -50,6 +50,15 @@ This version installs everything from the source packages includeing all the dep
 
 <br />
 You should be good to go….
+	
+	sudo su postgres
+	
+	psql
+	
+	CREATE EXTENSION IF NOT EXISTS 	postgis WITH SCHEMA public;
+	
+	\q
+	exit
 
 
 
